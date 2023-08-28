@@ -15,6 +15,12 @@ public class Sequential
    */
   public static int search(int[] arr, int target) {
     // Your algorithm goes here!
+    boolean isGreater;
+    int number = 0;
+    if (arr[number] < arr.length){
+        System.out.print("Hi");
+        number++;
+    }
     return 0;
   }
   
