@@ -15,7 +15,7 @@ public class Sequential
    */
   public static int search(int[] arr, int target) {
     // Your algorithm goes here!
-    
+    return 0;
   }
   
   public static void main(String[] args) {
