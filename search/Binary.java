@@ -17,6 +17,11 @@ public class Binary
     // Note... I know that the standard Java Arrays class has a method called
     // binarySearch.  If you use it for testing, but you need to implement the algorithm
     // to get the point! 
+    int left = 0;
+    int middle = arr.length/2;
+    int right = arr.length-1;
+    
+    return -1;
   }
   
   public static void main(String[] args) {
