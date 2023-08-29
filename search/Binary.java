@@ -16,8 +16,7 @@ public class Binary
     // Your algorithm goes here!
     // Note... I know that the standard Java Arrays class has a method called
     // binarySearch.  If you use it for testing, but you need to implement the algorithm
-    // to get the point!
-    
+    // to get the point! 
   }
   
   public static void main(String[] args) {
