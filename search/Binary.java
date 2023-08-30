@@ -22,12 +22,14 @@ public class Binary {
     int right = arr.length - 1;
 
     while (left <= right) {
-      middle = (left + right) / 2;
-      if (target == arr[middle]) {
-        return middle;
-      } else if (target < arr[middle]) {
-        
-      }
+        middle = (left + right) /2;
+        if (arr[middle] == target) {
+            return middle;
+        } else if (arr[middle] < target) {
+            left = middle + 1;
+        } else {
+            right = middle - 1;
+        }
     }
 
     return -1;
