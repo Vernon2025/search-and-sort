@@ -18,7 +18,8 @@ public class Insertion
         // Your algorithm goes here!
         int first = 0;
         int last = arr.length;
-        Arrays.sort(arr, first, last);
+        
+        Arrays.sort(arr,first,last);
         return arr;
     }
 

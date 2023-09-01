@@ -16,7 +16,18 @@ public class Selection
    */
   public static int[] sort(int[] arr) {
     // Your algorithm goes here!
-
+    
+    
+    for(int i = 0; i < arr.length; i++) {
+        int first = 0;
+        int second = 1;
+        if(arr[first] > arr[second]) {
+            first++;
+            second--;   
+        }
+        return arr;
+    }
+    return arr;
   }
   
   public static void main(String[] args) {
