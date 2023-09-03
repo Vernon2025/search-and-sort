@@ -17,22 +17,22 @@ public class Binary {
     // binarySearch. If you use it for testing, but you need to implement the
     // algorithm
     // to get the point!
+    
+    Insertion.sort(arr);
+
     int left = 0;
-    int middle = arr.length / 2;
-    int right = arr.length - 1;
-
-    while (left <= right) {
-        middle = (left + right) /2;
-        if (arr[middle] == target) {
-            return middle;
-        } else if (arr[middle] < target) {
-            left = middle + 1;
-        } else {
-            right = middle - 1;
+        int right = arr.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (arr[mid] == target) {
+                return mid;
+            } else if (arr[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
         }
-    }
-
-    return -1;
+        return -1;
   }
 
   public static void main(String[] args) {
