@@ -1,5 +1,7 @@
 package search;
 
+import sort.Insertion;
+
 /**
  * Write a description of class Binary here.
  * 
@@ -18,7 +20,6 @@ public class Binary {
     // algorithm
     // to get the point!
     
-    Insertion.sort(arr);
 
     int left = 0;
         int right = arr.length - 1;
@@ -42,7 +43,7 @@ public class Binary {
 
     // Remember that a binary search requires a sorted array!
     // You can use one of your sorting methods here.
-
+          Insertion.sort(arr);
     ////////////////////////////////////////////////////////////
     // Do not change anything below this line!!
     ////////////////////////////////////////////////////////////
