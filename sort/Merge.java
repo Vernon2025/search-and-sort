@@ -14,7 +14,7 @@ public class Merge {
      * Returns the sorted array
      */
     public static int[] sort(int[] arr) {
-        // Base case: If the array has 1 or 0 elements, it is already sorted.
+        // If the array has 1 or 0 elements, it is already sorted.
         if (arr.length <= 1) {
             return arr;
         }
@@ -54,7 +54,10 @@ public class Merge {
 
     public static int[] merge(int[] left, int[] right) {
         int[] result = new int[left.length + right.length];
-        int leftIndex = 0, rightIndex = 0, resultIndex = 0;
+        int leftIndex = 0;
+        int rightIndex = 0;
+        int resultIndex = 0;
+        
         // Compare elements from both arrays and merge them in sorted order
         while (leftIndex < left.length && rightIndex < right.length) {
             if (left[leftIndex] < right[rightIndex]) {
@@ -63,10 +66,12 @@ public class Merge {
                 result[resultIndex++] = right[rightIndex++];
             }
         }
+        
         // Copy any remaining elements from left and right arrays
         while (leftIndex < left.length) {
             result[resultIndex++] = left[leftIndex++];
         }
+        
         while (rightIndex < right.length) {
             result[resultIndex++] = right[rightIndex++];
         }
