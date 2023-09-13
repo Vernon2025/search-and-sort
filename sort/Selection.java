@@ -15,25 +15,28 @@ public class Selection
    * Returns the sorted array
    */
   public static int[] sort(int[] arr) {
-    // Your algorithm goes here!
     int n = arr.length;
 
     for (int i = 0; i < n - 1; i++) {
-      int minIndex = i;
+        // Assume the current index (i) has the minimum value
+        int minIndex = i;
 
-      for (int j = i + 1; j < n; j++) {
-        if (arr[j] < arr[minIndex]) {
-          minIndex = j;
+        // Find the index of the minimum element in the unsorted part of the array
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
         }
-      }
 
-      int temp = arr[i];
-      arr[i] = arr[minIndex];
-      arr[minIndex] = temp;
+        // Swap the current element (arr[i]) with the minimum element (arr[minIndex])
+        int temp = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
     }
 
     return arr;
-  }
+}
+
   
   public static void main(String[] args) {
     int[] arr = {53,85,93,25,39,27,42,5,24,45,33,51,5,80,4,7,91,
