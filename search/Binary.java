@@ -1,6 +1,6 @@
 package search;
 
-import sort.Insertion;
+import sort.Merge;
 
 /**
  * Write a description of class Binary here.
@@ -14,26 +14,34 @@ public class Binary {
    * Returns the index of the target value, or -1 if not found
    */
   public static int search(int[] arr, int target) {
-    // Your algorithm goes here!
-    // Note... I know that the standard Java Arrays class has a method called
-    // binarySearch. If you use it for testing, but you need to implement the
-    // algorithm
-    // to get the point!
-
+    // Initialize the left and right pointers to the start and end of the array.
     int left = 0;
     int right = arr.length - 1;
+
+    // Continue searching as long as the left pointer is less than or equal to the right pointer.
     while (left <= right) {
-      int mid = (right - left) / 2;
-      if (arr[mid] == target) {
-        return mid;
-      } else if (arr[mid] < target) {
-        left = mid + 1;
-      } else {
-        right = mid - 1;
-      }
+        // Calculate the middle index of the current search range.
+        int mid = (left + right) / 2;
+
+        // Check if the middle element is equal to the target.
+        if (arr[mid] == target) {
+            // If a match is found, return the index of the target element.
+            return mid;
+        } else if (arr[mid] < target) {
+            // If the middle element is less than the target, update the left pointer
+            // to search the right half of the current range.
+            left = mid + 1;
+        } else {
+            // If the middle element is greater than the target, update the right pointer
+            // to search the left half of the current range.
+            right = mid - 1;
+        }
     }
+
+    // If the loop completes without finding the target, return -1 to indicate it was not found.
     return -1;
-  }
+}
+
 
   public static void main(String[] args) {
     int[] arr = { 53, 85, 93, 25, 39, 27, 42, 5, 24, 45, 33, 51, 5, 80, 4, 7, 91,
@@ -42,7 +50,7 @@ public class Binary {
 
     // Remember that a binary search requires a sorted array!
     // You can use one of your sorting methods here.
-    Insertion.sort(arr);
+    Merge.sort(arr);
     ////////////////////////////////////////////////////////////
     // Do not change anything below this line!!
     ////////////////////////////////////////////////////////////
