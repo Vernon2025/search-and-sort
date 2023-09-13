@@ -14,14 +14,18 @@ public class Sequential
    * Returns the index of the target value, or -1 if not found
    */
   public static int search(int[] arr, int target) {
-    // Your algorithm goes here!
+    // Iterate through the elements of the array.
     for (int i = 0; i < arr.length; i++) {
+        // Check if the current element is equal to the target.
         if (target == arr[i]) {
+            // If a match is found, return the index of the target element.
             return i;
         }
     }
+    // If the loop completes without finding the target, return -1 to indicate it was not found.
     return -1;
-  }
+}
+
   
   public static void main(String[] args) {
     int[] arr = {53,85,93,25,39,27,42,5,24,45,33,51,5,80,4,7,91,
