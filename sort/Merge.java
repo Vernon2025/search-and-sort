@@ -14,22 +14,54 @@ public class Merge {
      * Returns the sorted array
      */
     public static int[] sort(int[] arr) {
-        // If the array has 1 or 0 elements, it is already sorted.
+        // Base case: If the array has 0 or 1 elements, it is already sorted.
         if (arr.length <= 1) {
             return arr;
         }
-
-        // Split the array into two halves
+    
+        // Find the middle index of the array.
         int mid = arr.length / 2;
+    
+        // Create two subarrays, 'left' and 'right', by splitting the original array in half.
         int[] left = Arrays.copyOfRange(arr, 0, mid);
         int[] right = Arrays.copyOfRange(arr, mid, arr.length);
-
-        // Recursively sort the left and right halves
+    
+        // Recursively sort the 'left' and 'right' subarrays.
         left = sort(left);
         right = sort(right);
-
-        // Merge the sorted halves
-        return merge(left, right);
+    
+        // Merge the sorted 'left' and 'right' subarrays into a single sorted array.
+        int[] merged = new int[arr.length];
+        int leftIndex = 0, rightIndex = 0, mergedIndex = 0;
+    
+        // Compare elements from 'left' and 'right' and merge them in sorted order.
+        while (leftIndex < left.length && rightIndex < right.length) {
+            if (left[leftIndex] < right[rightIndex]) {
+                merged[mergedIndex] = left[leftIndex];
+                leftIndex++;
+            } else {
+                merged[mergedIndex] = right[rightIndex];
+                rightIndex++;
+            }
+            mergedIndex++;
+        }
+    
+        // Copy any remaining elements from 'left' into the merged array.
+        while (leftIndex < left.length) {
+            merged[mergedIndex] = left[leftIndex];
+            leftIndex++;
+            mergedIndex++;
+        }
+    
+        // Copy any remaining elements from 'right' into the merged array.
+        while (rightIndex < right.length) {
+            merged[mergedIndex] = right[rightIndex];
+            rightIndex++;
+            mergedIndex++;
+        }
+    
+        // Return the merged and sorted array.
+        return merged;
     }
 
     public static void main(String[] args) {
@@ -50,32 +82,5 @@ public class Merge {
             }
         }
         System.out.println("SUCCESS!");
-    }
-
-    public static int[] merge(int[] left, int[] right) {
-        int[] result = new int[left.length + right.length];
-        int leftIndex = 0;
-        int rightIndex = 0;
-        int resultIndex = 0;
-        
-        // Compare elements from both arrays and merge them in sorted order
-        while (leftIndex < left.length && rightIndex < right.length) {
-            if (left[leftIndex] < right[rightIndex]) {
-                result[resultIndex++] = left[leftIndex++];
-            } else {
-                result[resultIndex++] = right[rightIndex++];
-            }
-        }
-        
-        // Copy any remaining elements from left and right arrays
-        while (leftIndex < left.length) {
-            result[resultIndex++] = left[leftIndex++];
-        }
-        
-        while (rightIndex < right.length) {
-            result[resultIndex++] = right[rightIndex++];
-        }
-
-        return result;
     }
 }
